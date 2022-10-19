@@ -1,0 +1,6 @@
+version: '3'
+services:
+    gutenberg:
+        image: 'lan2play/docker-gsltctrl:latest'
+        environment:
+            APIKEY: 'YOURAPIKEY'
