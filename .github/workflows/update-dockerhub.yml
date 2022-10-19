@@ -18,5 +18,5 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: lan2play/docker-gsltctrl
-          short-description: "docker image of https://github.com/991jo/gsltctrl_minimal"
+          short-description: "docker image of https://github.com/991jo/GSLTCTRL-RS"
           readme-filepath: ./README.md

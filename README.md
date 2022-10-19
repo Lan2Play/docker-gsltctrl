@@ -1,6 +1,6 @@
-# gsltctrl_minimal docker image
+# GSLTCTRL-RS docker image
 
-This repository is based on the work of [991jo's ](https://github.com/991jo) [gsltctrl_minimal](https://github.com/991jo/gsltctrl_minimal.git) .
+This repository is based on the work of [991jo's ](https://github.com/991jo) [GSLTCTRL-RS](https://github.com/991jo/GSLTCTRL-RS.git) .
 
 ## Linux Container
 
@@ -15,6 +15,6 @@ docker pull lan2play/docker-gsltctrl;
 ### usage
 
 ```shell
-docker run --rm -e APIKEY=YOURAPIKEY lan2play/docker-gsltctrl <appid> '<memo>'
+docker run --rm -e GSLTCTRL_TOKEN=YOURAPIKEY lan2play/docker-gsltctrl <appid> '<memo>'
 ```
 
