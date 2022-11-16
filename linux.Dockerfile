@@ -1,11 +1,11 @@
 # escape=`
 
-FROM rust:latest AS builder
+FROM debian:stable-slim AS builder
 WORKDIR /dl
 
-RUN git clone https://github.com/991jo/GSLTCTRL-RS.git
+RUN apt-get update && apt-get install wget jq -y
+RUN wget -O gsltctrl $(wget -qO- https://api.github.com/repos/991jo/gsltctrl-rs/releases/latest |jq -r ' .assets[] | select(.name | contains("gsltctrl-x86_64-unknown-linux-gnu")) | .browser_download_url')
 
-RUN cd GSLTCTRL-RS && cargo build --release
 
 
 FROM debian:stable-slim
@@ -25,7 +25,7 @@ LABEL com.lacledeslan.build-node=$BUILDNODE `
 
 RUN useradd --user-group --system --create-home --no-log-init gsltctrl
 
-COPY --chown=gsltctrl:gsltctrl --from=builder /dl/GSLTCTRL-RS/target/release/gsltctrl /app/GSLTCTRL-RS/gsltctrl
+COPY --chown=gsltctrl:gsltctrl --from=builder /dl/gsltctrl /app/GSLTCTRL-RS/gsltctrl
 
 RUN chmod +x /app/GSLTCTRL-RS/gsltctrl;
 
